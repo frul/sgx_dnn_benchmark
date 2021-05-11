@@ -32,3 +32,10 @@ for release build (sign the enclave by yourself):
 ```
 make SGX_DEBUG=0
 ```
+
+# Run
+Just launch the application produced by make
+
+```
+./app
+```
