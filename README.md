@@ -12,8 +12,8 @@ Training in enclave time is: 3049103561 [nanoseconds]
 ```
 
 # Prerequisites 
-Make sure you have https://github.com/intel/linux-sgx/tree/sgx_2.13.3 and https://github.com/oneapi-src/oneDNN/tree/v1.1.1 installed 
-The tests were performed on those specific version as SGX SDK's DNNL implementation is based on OneDnn v1.1.1 and thus we compare the same algorithms
+Make sure you have https://github.com/intel/linux-sgx/ and https://github.com/oneapi-src/oneDNN/tree/v1.1.1 installed.
+Thus the benchmarking is fair since current versions of OneDnn may have gone way ahead of the fork used in SGX SDK (v1.1.1)
 
 # Build
 Use SGX SDK's parameters to build debug or release versions
