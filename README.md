@@ -1,6 +1,6 @@
 # sgx_dnn_benchmark
 
-Simple benchmark aimed to compare performance of cnn_training_f32 and cnn_inference_f32 in simple CPU mode vs in enclave
+Simple benchmark aimed to compare performance of **cnn_training_f32** and **cnn_inference_f32** samples from the official package in simple CPU mode and in the enclave mode
 
 Prerelease mode results obtained for the latest release of SGX SDK vs OneDnn 1.1.1 (on which the former is based) on Intel(R) Xeon(R) E-2288G CPU @ 3.70GHz are:
 
@@ -12,8 +12,8 @@ Training in enclave time is: 3049103561 [nanoseconds]
 ```
 
 # Prerequisites 
-Make sure you have https://github.com/intel/linux-sgx and https://github.com/oneapi-src/oneDNN installed 
-
+Make sure you have https://github.com/intel/linux-sgx/tree/sgx_2.13.3 and https://github.com/oneapi-src/oneDNN/tree/v1.1.1 installed 
+The tests were performed on those specific version as SGX SDK's DNNL implementation is based on OneDnn v1.1.1 and thus we compare the same algorithms
 
 # Build
 Use SGX SDK's parameters to build debug or release versions
