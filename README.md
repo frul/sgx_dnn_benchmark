@@ -6,7 +6,6 @@ Make sure you have https://github.com/intel/linux-sgx and https://github.com/one
 
 # Build
 Use SGX SDK's parameters to build debug or release versions
-like
 
 for debug build:
 ```
