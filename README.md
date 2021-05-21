@@ -89,11 +89,11 @@ cp  external/dnnl/sgx_dnnl/lib/* $SGX_SDK/lib64
 
 # Benchmarking results with OpenMP turned off
 
-```
-Inference on CPU time is: 584704426 [nanoseconds] 
-Training on CPU time is: 237126444 [nanoseconds] 
-Inference in enclave time is: 3992817552 [nanoseconds] 
-Training in enclave time is: 3264539662 [nanoseconds] 
-```
+| Function                        | Time with OpenMp, ms  | Time without OpenMP, ms |
+| ------------------------------- | --------------------- | ----------------------- |
+| cnn_inference_f32_cpp on CPU    |            168,415345 |              584,704426 |
+| cnn_training_f32_cpp on CPU     |            117,568182 |              237,126444 |
+| cnn_inference_f32_cpp enclave   |           2701,513531 |             3992,817552 |
+| cnn_training_f32_cpp enclave    |           3049,103561 |             3264,539662 |
 
-As we can see, while usage of OpenMP indeed makes difference for simple CPU mode, the usage of OpenMP in the enclave makes for not so impressive results, even worsening performance for cnn_training_f32_cpp
+As we can see, while usage of OpenMP indeed makes difference for simple CPU mode, the usage of OpenMP in the enclave worsenes performance, making its usage inside the enclave is not reasonable
