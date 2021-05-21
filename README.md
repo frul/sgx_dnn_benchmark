@@ -86,3 +86,14 @@ cp  external/dnnl/sgx_dnnl/lib/* $SGX_SDK/lib64
 ```
 
 9. Make sure to remove all linkage to -lsgx_omp if you want to build existing sources targeting sgx_dnnl
+
+# Benchmarking results with OpenMP turned off
+
+```
+Inference on CPU time is: 584704426 [nanoseconds] 
+Training on CPU time is: 237126444 [nanoseconds] 
+Inference in enclave time is: 3992817552 [nanoseconds] 
+Training in enclave time is: 3264539662 [nanoseconds] 
+```
+
+As we can see, while usage of OpenMP indeed makes difference for simple OpenMP mode, the usage of OpenMP in the enclave makes for not so impressive results, yielding even worse for cnn_training_f32_cpp_routine
