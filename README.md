@@ -39,3 +39,50 @@ Just launch the application produced by make
 ```
 ./app
 ```
+
+# Benchmarking with OpenMP switched off
+During the tests we found out that usage of OpenMP doesn't make any significant difference on performance. But since threading inside the enclave supposedly brings context switch / synchronization overhead, we find it reasonable to include the results with OpenMP turned off
+
+# Build SGX SDK with OpenMP switched off
+
+1. git clone https://github.com/intel/linux-sgx_dnnl
+
+2. switch to the latest release tag
+
+```
+git checkout tags/sgx_2.13.3
+```
+
+2. Download dependencies (git submodule)
+
+```
+make preparation
+```
+
+3. Overwrite the file sgx_dnnl.patch in external/dnnl with the one provided
+
+4. make sdk
+
+5. make sdk_install_pkg
+
+6. Install the sdk and input the desired installation dir
+```
+./linux/installer/bin/sgx_linux_x64_sdk_2.13.103.1.bin
+source <install_dir>/sgxsdk/environment
+```
+
+7. Build Dnnl port for SGX 
+
+```
+cd external/dnnl
+make
+```
+
+8. Put generated headers and library to the installation dir you selected in step 6.
+
+```
+cp external/dnnl/sgx_dnnl/include/* $SGX_SDK/include
+cp  external/dnnl/sgx_dnnl/lib/* $SGX_SDK/lib64
+```
+
+9. Make sure to remove all linkage to -lsgx_omp if you want to build existing sources targeting sgx_dnnl
