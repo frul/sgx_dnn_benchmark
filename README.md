@@ -96,4 +96,4 @@ Inference in enclave time is: 3992817552 [nanoseconds]
 Training in enclave time is: 3264539662 [nanoseconds] 
 ```
 
-As we can see, while usage of OpenMP indeed makes difference for simple OpenMP mode, the usage of OpenMP in the enclave makes for not so impressive results, yielding even worse for cnn_training_f32_cpp_routine
+As we can see, while usage of OpenMP indeed makes difference for simple CPU mode, the usage of OpenMP in the enclave makes for not so impressive results, yielding even worse for cnn_training_f32_cpp_routine
