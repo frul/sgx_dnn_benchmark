@@ -82,7 +82,7 @@ make
 
 ```
 cp external/dnnl/sgx_dnnl/include/* $SGX_SDK/include
-cp  external/dnnl/sgx_dnnl/lib/* $SGX_SDK/lib64
+cp external/dnnl/sgx_dnnl/lib/* $SGX_SDK/lib64
 ```
 
 9. Make sure to remove all linkage to -lsgx_omp if you want to build existing sources targeting sgx_dnnl
