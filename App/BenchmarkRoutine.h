@@ -1,6 +1,7 @@
 #pragma once
 
 #include <chrono>
+#include <iomanip>
 #include "Routine.h"
 
 void benchmark(Routine* routine) {
@@ -19,5 +20,6 @@ void benchmark(Routine* routine) {
                     std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin).count() / steps;
         }
     }
-    std::cout << routine->getName() << " time is: " << duration << " [nanoseconds] " << std::endl;
+    std::cout << routine->getName() << " time is: " << std::setprecision(9) 
+        << (double)duration / 1000000.0 << " [ milliseconds ] " << std::endl;
 }
