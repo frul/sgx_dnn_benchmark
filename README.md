@@ -11,6 +11,7 @@ Prerelease mode results obtained for the latest release of SGX SDK vs OneDnn 1.1
 | cnn_inference_f32_cpp enclave   |           2701.513531 |
 | cnn_training_f32_cpp enclave    |           3049.103561 |
 
+
 # Prerequisites 
 Make sure you have https://github.com/intel/linux-sgx/ and https://github.com/oneapi-src/oneDNN/tree/v1.1.1 installed.
 Thus the benchmarking is fair since current versions of OneDnn may have gone way ahead of the fork used in SGX SDK (v1.1.1)
@@ -89,11 +90,22 @@ cp external/dnnl/sgx_dnnl/lib/* $SGX_SDK/lib64
 
 # Benchmarking results with OpenMP turned off
 
+on Intel(R) Xeon(R) E-2288G CPU @ 3.70GHz:
+
 | Function                        | Time with OpenMp, ms  | Time without OpenMP, ms |
 | ------------------------------- | --------------------- | ----------------------- |
 | cnn_inference_f32_cpp on CPU    |            168.415345 |              584.704426 |
 | cnn_training_f32_cpp on CPU     |            117.568182 |              237.126444 |
 | cnn_inference_f32_cpp enclave   |           2701.513531 |             3992.817552 |
 | cnn_training_f32_cpp enclave    |           3049.103561 |             3264.539662 |
+
+on Intel(R) Xeon(R) Platinum 8358 CPU @ 2.60GHz:
+
+| Function                        | Time with OpenMp, ms  | Time without OpenMP, ms |
+| ------------------------------- | --------------------- | ----------------------- |
+| cnn_inference_f32_cpp on CPU    |            323.889681 |              365.733922 |
+| cnn_training_f32_cpp on CPU     |            135.874076 |              135.197621 |
+| cnn_inference_f32_cpp enclave   |             262.82887 |             144.6728862 |
+| cnn_training_f32_cpp enclave    |            1795.22825 |              1921.58327 |
 
 As we can see, while usage of OpenMP indeed makes difference for simple CPU mode, the usage of OpenMP in the enclave worsenes performance, making its usage inside the enclave iunreasonable
